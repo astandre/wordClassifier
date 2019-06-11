@@ -18,16 +18,14 @@ def handle_sentences(sentence):
     print("SENTECE: ", sentence)
     new_sentence = Sentence(sentence=sentence)
     session.add(new_sentence)
-    # session.commit()
+    session.commit()
     sentence = nlp(sentence)
     order = 0
     for token in sentence:
         word = token.text.lower()
         if not token.is_stop and token.is_punct is False and token.pos_ != "SPACE":
-            print("WORD: %s | POS: %s " % (word, token.pos_))
-            new_word = Word(word=word, pos=token.pos_, order=order, sentence_id=new_sentence.id)
-            session.add(new_word)
-
+            print("WORD: %s | POS: %s | LEMMA: %s" % (word, token.pos_, token.lemma_))
+            new_word = Word(word=word, pos=token.pos_, order=order, lemma=token.lemma_, sentence_id=new_sentence.id)
             session.add(new_word)
             order += 1
 

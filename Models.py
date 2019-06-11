@@ -32,6 +32,7 @@ class Word(Base):
 
     id = Column(Integer, primary_key=True)
     word = Column(String(100), nullable=False)
+    lemma = Column(String(100), nullable=False)
     # lemma = Column(Integer, ForeignKey('word.id'), nullable=True)
     pos = Column(String(10), nullable=False)
     order = Column(Integer, nullable=False)
