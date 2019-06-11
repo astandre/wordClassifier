@@ -3,7 +3,6 @@ blis==0.2.4
 certifi==2019.3.9
 chardet==3.0.4
 cymem==2.0.2
-es-core-news-sm==2.1.0
 idna==2.8
 jsonschema==3.0.1
 murmurhash==1.0.2
